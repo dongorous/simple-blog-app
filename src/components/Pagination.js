@@ -9,12 +9,7 @@ const Paginate = ({ postsPerPage, totalPosts, currentPage, paginateItem, nextPag
         pageNumbers.push(i);
     }
 
-    console.log(postsPerPage, "postsPerPagepostsPerPagepostsPerPage")
-    console.log(totalPosts, "totalPoststotalPoststotalPoststotalPoststotalPosts")
-
     const totalNumberOfPages = Math.ceil(totalPosts/postsPerPage);
-
-    console.log(totalPosts, "totalPoststotalPoststotalPoststotalPosts------")
 
     return (
         <div>
@@ -25,6 +20,7 @@ const Paginate = ({ postsPerPage, totalPosts, currentPage, paginateItem, nextPag
                     // {{pageNumbers.map(num => (
                     //     <PaginationItem key={num} onClick={() => paginate(num)}>{num}</PaginationItem>
                     // ))} }
+                    console.log(pageNumbers, "pageNumbers")
                     return (
                         <PaginationItem {...pageNumbers} onClick={() => paginateItem(pageNumbers.page)}/>
                     )

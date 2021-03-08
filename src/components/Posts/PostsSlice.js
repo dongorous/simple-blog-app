@@ -63,7 +63,6 @@ export const PostsSlice = createSlice({
             state.currentPage = action.payload;
         },
         setTotalPosts(state, action) {
-            state.totalPosts = state.data.length;
             state.totalPosts = action.payload;
         },
     },
@@ -78,6 +77,7 @@ export const PostsSlice = createSlice({
             state.status = null;
             state.data = action.payload;
             state.filteredResults = action.payload.slice(indexOfFirstPost, indexOfLastPost);
+            state.totalPosts = state.data.length;
         },
         [fetchAll.rejected]: (state, action) => {    
             state.status = 'failed'

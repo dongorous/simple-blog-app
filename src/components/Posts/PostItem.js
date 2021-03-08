@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import string_to_slug from '../../helpers/slugify';
+import lightFormat from 'date-fns/lightFormat';
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -11,9 +12,12 @@ const useStyles = makeStyles((theme) => ({
     root: {
         marginBottom: 15
     },
+    dateStyle: {
+        marginTop: 15
+    },
 }));
 
-const PostItem = ({ title, content, _id }) => {
+const PostItem = ({ title, content, _id, _createdOn }) => {
     const classes = useStyles();
     return (
         <Card variant="outlined" className={classes.root}>
@@ -23,6 +27,9 @@ const PostItem = ({ title, content, _id }) => {
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
                     {content}
+                </Typography>
+                <Typography className={classes.dateStyle} variant="body2" color="textSecondary" component="p">
+                    {lightFormat(new Date(_createdOn), 'yyyy-MM-dd')}
                 </Typography>
             </CardContent>
         </Card>

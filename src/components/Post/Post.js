@@ -11,6 +11,8 @@ import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 
+import lightFormat from 'date-fns/lightFormat';
+
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Post = () => {
@@ -42,6 +44,8 @@ const Post = () => {
 
     if(status == "loading-single-post") return <CircularProgress />;
 
+    const dateCreated = lightFormat(new Date("2021-03-08T19:47:42.634Z"), 'yyyy-MM-dd');
+
     return (
         <>
             <Card variant="outlined">
@@ -51,6 +55,9 @@ const Post = () => {
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
                         {singlePost.content}
+                    </Typography>
+                    <Typography style={{marginTop: '20px'}} variant="body2" color="textSecondary" component="p">
+                        {dateCreated}
                     </Typography>
                 </CardContent>
                 <CardActions>
