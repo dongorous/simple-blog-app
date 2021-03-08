@@ -56,7 +56,10 @@ export const PostsSlice = createSlice({
         filterPost(state, action) {
             let indexOfLastPost = state.currentPage * state.postsPerPage;
             let indexOfFirstPost = indexOfLastPost - state.postsPerPage;
-            state.filteredResults = action.payload.slice(indexOfFirstPost, indexOfLastPost);
+            console.log(indexOfLastPost, "indexOfLastPost")
+            console.log(indexOfFirstPost, "indexOfFirstPost")
+            state.filteredResults = [...action.payload].slice(indexOfFirstPost, indexOfLastPost);
+            state.totalPosts = action.payload.length;
         },
         setCurrentPage(state, action) {
             console.log(action, "setCurrentPage")

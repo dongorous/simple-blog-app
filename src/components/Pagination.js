@@ -20,7 +20,6 @@ const Paginate = ({ postsPerPage, totalPosts, currentPage, paginateItem, nextPag
                     // {{pageNumbers.map(num => (
                     //     <PaginationItem key={num} onClick={() => paginate(num)}>{num}</PaginationItem>
                     // ))} }
-                    console.log(pageNumbers, "pageNumbers")
                     return (
                         <PaginationItem {...pageNumbers} onClick={() => paginateItem(pageNumbers.page)}/>
                     )
